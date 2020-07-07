@@ -49,10 +49,11 @@ ul {
 .chat-container {
   /* border: solid 1px red; */
   height: 25vh;
-  width: 25vw;
+  width: 15vw;
   margin-top: 22%;
   overflow-y: hidden;
   overflow-x: hidden;
+  margin-left: 0rem;
   padding-left: 5px;
   display: flex;
   flex-direction: column;

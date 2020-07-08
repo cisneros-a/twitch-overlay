@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
-export default function PracticeStyle() {
+export default function PracticeStyle({ messages }) {
+  const [count, setCount] = useState(0);
+
   let addMessage = () => {
     this.setState({
       count: this.state.count + 1,
@@ -16,11 +18,11 @@ export default function PracticeStyle() {
         user: "",
       },
       message: {
-        value: `count is ${this.state.count}`,
+        value: `count is ${count}`,
       },
       tags: testMap,
     };
-    let last20Messages = this.state.messages;
+    let last20Messages = messages;
     if (last20Messages.length > 19) {
       last20Messages.unshift();
     }

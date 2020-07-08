@@ -7,6 +7,7 @@ import P2020 from "../images/P2020-1.png";
 
 export default function Chat({ messages }) {
   let chatContainer = useRef();
+  console.log(messages.length);
 
   function assignClass(msg) {
     if (msg.prefix.user === "gunchfps") {
@@ -34,63 +35,35 @@ export default function Chat({ messages }) {
     return P2020;
   }
 
-  let scrollToMyRef = () => {
+  let scrollToBottomOfChat = () => {
     const scroll =
       chatContainer.current.scrollHeight - chatContainer.current.clientHeight;
     chatContainer.current.scrollTo(0, scroll);
   };
 
-  let ifEmotes = (msg) => {
-    // console.log(msg.tags.get('emotes'))
-    if (msg.tags.get("emotes") === "") {
-      return true;
-    }
-    return false;
-    // return checkForGunchEmotes(msg.message.value);
-  };
-
-  // let checkForGunchEmotes = (msg) => {
-  //   const gunchEmotes = ["gunchfPPunch", "gunchfMouse", "gunchfRage"];
-  //   const emoteCodes = {
-  //     gunchfPPunch: 302277522,
-  //     gunchfMouse: 302070630,
-  //     gunchfRage: 302070618,
-  //   };
-  //   let wordsArray = msg.split(" ");
-  //   let contents;
-  //   for (let i = 0; i < wordsArray.length; i++) {
-  //     if (gunchEmotes.includes(word)) {
-  //        return <img
-  //           src={`https://static-cdn.jtvnw.net/emoticons/v1/${
-  //             emoteCodes[wordsArray[i]]
-  //           }/2.0`}
-  //           alt={wordsArray[i]}
-  //         />
-
-  //     } else {
-  //       contents += wordsArray[i];
-  //     }
-  //   }
-  //   console.log(contents);
-  //   return <div>contents</div>;
-  // };
-
   console.log(messages[messages.length - 1]);
   useEffect(() => {
-    scrollToMyRef();
+    scrollToBottomOfChat();
   }, [messages]);
 
   return (
     <ol ref={chatContainer} className="chat-container">
       {messages.map((msg) => {
+        console.log(msg.tags.get("msg-id") === "highlighted-message");
         return (
           <li className="chat-entry" key={msg.tags.get("id")}>
-            <p className="chat-message">
+            <p
+              className={
+                msg.tags.get("msg-id") === "highlighted-message"
+                  ? "highlighted-message"
+                  : "chat-message"
+              }
+            >
               <span className={assignClass(msg)}>
                 {msg.tags.get("display-name")}
               </span>{" "}
-              <img src={assignImg(msg)} alt="gun" />
-              {ifEmotes(msg)
+              <img className="gun-img" src={assignImg(msg)} alt="gun" />{" "}
+              {msg.tags.get("emotes") === ""
                 ? msg.message.value
                 : msg.message.value.split(" ").map((word) => {
                     const gunchEmotes = [

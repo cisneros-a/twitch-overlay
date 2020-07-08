@@ -40,7 +40,42 @@ export default function Chat({ messages }) {
     chatContainer.current.scrollTo(0, scroll);
   };
 
-  //   console.log(messages[messages.length - 1]);
+  let ifEmotes = (msg) => {
+    // console.log(msg.tags.get('emotes'))
+    if (msg.tags.get("emotes") === "") {
+      return true;
+    }
+    return false;
+    // return checkForGunchEmotes(msg.message.value);
+  };
+
+  // let checkForGunchEmotes = (msg) => {
+  //   const gunchEmotes = ["gunchfPPunch", "gunchfMouse", "gunchfRage"];
+  //   const emoteCodes = {
+  //     gunchfPPunch: 302277522,
+  //     gunchfMouse: 302070630,
+  //     gunchfRage: 302070618,
+  //   };
+  //   let wordsArray = msg.split(" ");
+  //   let contents;
+  //   for (let i = 0; i < wordsArray.length; i++) {
+  //     if (gunchEmotes.includes(word)) {
+  //        return <img
+  //           src={`https://static-cdn.jtvnw.net/emoticons/v1/${
+  //             emoteCodes[wordsArray[i]]
+  //           }/2.0`}
+  //           alt={wordsArray[i]}
+  //         />
+
+  //     } else {
+  //       contents += wordsArray[i];
+  //     }
+  //   }
+  //   console.log(contents);
+  //   return <div>contents</div>;
+  // };
+
+  console.log(messages[messages.length - 1]);
   useEffect(() => {
     scrollToMyRef();
   }, [messages]);
@@ -54,8 +89,33 @@ export default function Chat({ messages }) {
               <span className={assignClass(msg)}>
                 {msg.tags.get("display-name")}
               </span>{" "}
-              <img src={assignImg(msg)} alt="wingman" />
-              {` ${msg.message.value}`}
+              <img src={assignImg(msg)} alt="gun" />
+              {ifEmotes(msg)
+                ? msg.message.value
+                : msg.message.value.split(" ").map((word) => {
+                    const gunchEmotes = [
+                      "gunchfPPunch",
+                      "gunchfMouse",
+                      "gunchfRage",
+                    ];
+                    const emoteCodes = {
+                      gunchfPPunch: 302277522,
+                      gunchfMouse: 302070630,
+                      gunchfRage: 302070618,
+                    };
+                    if (gunchEmotes.includes(word)) {
+                      return (
+                        <img
+                          className={"emote"}
+                          src={`https://static-cdn.jtvnw.net/emoticons/v1/${emoteCodes[word]}/1.0`}
+                          alt={word}
+                        />
+                      );
+                    } else {
+                      return `${word} `;
+                    }
+                  })}
+              {/* {msg.message.value} */}
             </p>
             <div className></div>
           </li>
@@ -64,3 +124,5 @@ export default function Chat({ messages }) {
     </ol>
   );
 }
+
+// https://static-cdn.jtvnw.net/emoticons/v1/${emoteCodes[wordsArray[i]]}/2.0

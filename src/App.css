@@ -1,7 +1,8 @@
 .App {
   text-align: center;
   border: 1.5px solid red;
-  height: 99.8vh;
+  height: 1079px;
+  width: 1919px;
 }
 
 .num {
@@ -48,6 +49,7 @@ ul {
 }
 
 .chat-container {
+  background-color: teal;
   /* border: solid 1px red; */
   height: 30vh;
   width: 28vw;

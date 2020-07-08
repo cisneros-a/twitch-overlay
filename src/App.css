@@ -49,8 +49,8 @@ ul {
 
 .chat-container {
   /* border: solid 1px red; */
-  height: 25vh;
-  width: 23vw;
+  height: 30vh;
+  width: 28vw;
   margin-top: 22%;
   overflow-y: hidden;
   overflow-x: hidden;
@@ -107,4 +107,10 @@ span {
 
 .none {
   color: #e360f8;
+}
+
+.emote {
+  height: 1rem;
+  width: 1rem;
+  padding-left: 1px;
 }

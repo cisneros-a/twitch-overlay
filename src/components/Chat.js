@@ -7,7 +7,6 @@ import P2020 from "../images/P2020-1.png";
 
 export default function Chat({ messages }) {
   let chatContainer = useRef();
-  console.log(messages.length);
 
   function assignClass(msg) {
     if (msg.prefix.user === "gunchfps") {
@@ -41,7 +40,6 @@ export default function Chat({ messages }) {
     chatContainer.current.scrollTo(0, scroll);
   };
 
-  console.log(messages[messages.length - 1]);
   useEffect(() => {
     scrollToBottomOfChat();
   }, [messages]);
@@ -49,7 +47,6 @@ export default function Chat({ messages }) {
   return (
     <ol ref={chatContainer} className="chat-container">
       {messages.map((msg) => {
-        console.log(msg.tags.get("msg-id") === "highlighted-message");
         return (
           <li className="chat-entry" key={msg.tags.get("id")}>
             <p

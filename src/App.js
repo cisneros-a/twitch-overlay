@@ -21,7 +21,7 @@ export default class App extends Component {
         this.ChatClient.onPrivmsg((channel, user, message, msg) => {
           let last20Messages = this.state.messages;
           if (last20Messages.length > 19) {
-            last20Messages.length = 19;
+            last20Messages.unshift();
           }
           this.setState({
             messages: [...last20Messages, msg],

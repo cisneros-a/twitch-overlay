@@ -26,8 +26,8 @@ ul {
 }
 
 .chat-container {
-  background-color: teal;
-  height: 30vh;
+  /* background-color: teal; */
+  /* height: 30vh; */
   width: 23vw;
   overflow-y: hidden;
   overflow-x: hidden;

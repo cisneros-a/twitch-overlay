@@ -33,8 +33,30 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <Chat messages={this.state.messages}></Chat>
+        <div className="section1"></div>
+        <div className="section2"></div>
+        <div className="section3"></div>
+        <div className="section4"></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
     );
   }
+}
+
+{
+  /* <div ></div>
+<div></div>
+<Chat messages={this.state.messages}></Chat>
+<div></div> */
 }

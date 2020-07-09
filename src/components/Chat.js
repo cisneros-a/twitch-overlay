@@ -43,7 +43,7 @@ export default function Chat({ messages }) {
   useEffect(() => {
     scrollToBottomOfChat();
   }, [messages]);
-
+  console.log(messages[messages.length - 1]);
   return (
     <ol ref={chatContainer} className="chat-container">
       {messages.map((msg) => {
@@ -87,7 +87,6 @@ export default function Chat({ messages }) {
                   })}
               {/* {msg.message.value} */}
             </p>
-            <div className></div>
           </li>
         );
       })}

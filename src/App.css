@@ -93,3 +93,33 @@ ul {
 .gun-img {
   margin-right: 1px;
 }
+
+.bits-container {
+  padding-top: 20%;
+  /* background-color: gray; */
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap-reverse;
+}
+
+.bits-donation {
+  margin-left: 5px;
+  margin-bottom: 5px;
+  /* background-color: indigo; */
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.44),
+    rgba(0, 0, 0, 0)
+  );
+  height: 1.9rem;
+  width: 3.8rem;
+  color: white;
+  font-size: x-large;
+  border: 1px solid white;
+  border-top-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  transform: skew(-20deg);
+  font-weight: bolder;
+}

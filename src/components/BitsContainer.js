@@ -1,12 +1,22 @@
 import React from "react";
 import Bits from "./Bits";
 
-export default function BitsContainer({ bitsDonations }) {
-  console.log(bitsDonations);
+export default function BitsContainer({ bitDonations }) {
+  console.log(bitDonations);
   return (
     <div className={"bits-container"}>
-      {bitsDonations.map((donation) => {
-        return <Bits bitCount={donation.bits} />;
+      {bitDonations.map((donation, idx) => {
+        return (
+          <Bits
+            className={
+              idx === bitDonations.length - 1 ? "latest-bits-donation" : ""
+            }
+            key={idx}
+            bitCount={donation.bits}
+            bitDonationsLength={bitDonations.length}
+            index={idx}
+          />
+        );
       })}
     </div>
   );

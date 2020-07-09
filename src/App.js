@@ -8,7 +8,7 @@ import FakeMessage from "./components/FakeMessage";
 export default class App extends Component {
   state = {
     messages: [],
-    bitsDonations: [],
+    bitDonations: [],
   };
   ChatClient;
 
@@ -21,26 +21,28 @@ export default class App extends Component {
       .then(() => this.ChatClient.join("gunchfps"))
       .then(() => {
         this.ChatClient.onPrivmsg((channel, user, message, msg) => {
-          let bits = msg.totalBits;
-          let displayName = msg.prefix.user;
-          this.setState({
-            bitsDonations: [...this.state.bitsDonations, { displayName, bits }],
-          });
-          let last20Messages = this.state.messages;
-          if (last20Messages.length > 19) {
-            last20Messages.unshift();
-          }
-          this.setState({
-            messages: [...last20Messages, msg],
-          });
-          if (msg.totalBits > 0) {
-            console.log(true);
-          }
+          this.addBits(msg);
+          this.addMessages(msg);
         });
       });
   }
 
-  addToMessages = (msg) => {
+  addBits = (msg) => {
+    if (msg.totalBits > 0) {
+      let last15BitDonations = this.state.bitDonations;
+      if (last15BitDonations.length > 14) {
+        last15BitDonations.shift();
+        last15BitDonations.shift();
+      }
+      let bits = msg.totalBits;
+      let displayName = msg.prefix.user;
+      this.setState({
+        bitDonations: [...last15BitDonations, { displayName, bits }],
+      });
+    }
+  };
+
+  addMessages = (msg) => {
     let last20Messages = this.state.messages;
     if (last20Messages.length > 19) {
       last20Messages.unshift();
@@ -48,14 +50,14 @@ export default class App extends Component {
     this.setState({
       messages: [...last20Messages, msg],
     });
-
     if (msg.totalBits > 0) {
-      let bits = msg.totalBits;
-      let displayName = msg.prefix.user;
-      this.setState({
-        bitsDonations: [...this.state.bitsDonations, { displayName, bits }],
-      });
+      console.log(true);
     }
+  };
+
+  addToMessages = (msg) => {
+    this.addBits(msg);
+    this.addMessages(msg);
   };
 
   render() {
@@ -66,14 +68,16 @@ export default class App extends Component {
         <div className="section3"></div>
         <div className="section4"></div>
         <div></div>
-        <div>{/* <FakeMessage addToMessages={this.addToMessages} /> */}</div>
+        <div>
+          <FakeMessage addToMessages={this.addToMessages} />
+        </div>
         <div></div>
         <div></div>
         <div></div>
         <div></div>
         <div></div>
         <div className="section12">
-          <BitsContainer bitsDonations={this.state.bitsDonations} />
+          <BitsContainer bitDonations={this.state.bitDonations} />
         </div>
         <div></div>
         <div></div>

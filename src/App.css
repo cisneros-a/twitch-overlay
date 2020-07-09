@@ -1,20 +1,16 @@
 .App {
   text-align: center;
-  border: 1.5px solid red;
+  /* border: 1.5px solid red; */
   height: 1080px;
   width: 1920px;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: repeat(4, minmax(270px, 1fr));
 }
 
 .App > div {
-  border: 1px solid black;
-}
-
-.section4 {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  /* border: 1px solid black; */
 }
 
 .num {
@@ -26,14 +22,17 @@ ul {
 }
 
 .chat-container {
-  /* background-color: teal; */
-  /* height: 30vh; */
-  width: 23vw;
+  height: 24vh;
+  width: 21vw;
   overflow-y: hidden;
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  /* position: absolute; */
+  margin-top: 0rem;
+  margin-left: 0.5rem;
+  padding-right: 1rem;
+
+  position: absolute;
 }
 
 .chat-entry {
@@ -42,8 +41,6 @@ ul {
   align-items: flex-start;
   height: fit-content;
   text-align: left;
-
-  /* overflow: hidden; */
 }
 
 .chat-message {
@@ -69,18 +66,22 @@ ul {
 
 .host {
   color: rgb(255, 223, 39);
+  text-shadow: 1px 1px 10px black;
 }
 
 .sub {
   color: #6bcfa7;
+  text-shadow: 1px 1px 10px black;
 }
 
 .mod {
   color: #fe2d01;
+  text-shadow: 3px 3px 10px black;
 }
 
 .none {
-  color: #cfe254;
+  color: #f49a4a;
+  text-shadow: 1px 1px 10px black;
 }
 
 .emote {

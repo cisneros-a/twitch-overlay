@@ -46,13 +46,10 @@ export default class App extends Component {
         <div></div>
         <div></div>
         <div></div>
-        <div>
-          <div></div>
-          <div></div>
-          <Chat messages={this.state.messages}></Chat>
-          <div></div>
-        </div>
         <div></div>
+        <div>
+          <Chat messages={this.state.messages}></Chat>
+        </div>
         <div></div>
       </div>
     );

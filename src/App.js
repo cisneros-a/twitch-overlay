@@ -68,9 +68,7 @@ export default class App extends Component {
         <div className="section3"></div>
         <div className="section4"></div>
         <div></div>
-        <div>
-          <FakeMessage addToMessages={this.addToMessages} />
-        </div>
+        <div>{/* <FakeMessage addToMessages={this.addToMessages} /> */}</div>
         <div></div>
         <div></div>
         <div></div>

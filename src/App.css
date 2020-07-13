@@ -93,6 +93,10 @@ ul {
   padding-left: 3px;
 }
 
+.red-border {
+  border: 1px solid red;
+}
+
 .gun-img {
   margin-right: 1px;
 }

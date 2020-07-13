@@ -14,7 +14,7 @@ export default function PracticeStyle({ addToMessages }) {
     message: {
       value: `count is blah`,
     },
-    totalBits: Math.floor(Math.random() * 1000),
+    totalBits: Math.floor(Math.random() * 100),
     tags: testMap,
   };
 

@@ -1,37 +1,24 @@
 import React, { useRef, useEffect } from "react";
 import Kraber from "../images/Kraber-1.png";
-// import Wingman from "../images/Wingman-1.png";
-import Peacekeeper from "../images/Peacekeeper-1.png";
+import Wingman from "../images/Wingman-1.png";
+// import Peacekeeper from "../images/Peacekeeper-1.png";
 import R99 from "../images/R99-1.png";
 import P2020 from "../images/P2020-1.png";
 
 export default function Chat({ messages }) {
   let chatContainer = useRef();
 
-  function assignClass(msg) {
+  function assignClass(msg, img) {
     if (msg.prefix.user === "gunchfps") {
-      return "host";
+      return img ? Kraber : "host";
     }
     if (msg.tags.get("subscriber") === "1") {
-      return "sub";
+      return img ? Wingman : "sub";
     }
     if (msg.tags.get("mod") === "1") {
-      return "mod";
+      return img ? R99 : "mod";
     }
-    return "none";
-  }
-
-  function assignImg(msg) {
-    if (msg.prefix.user === "gunchfps") {
-      return Kraber;
-    }
-    if (msg.tags.get("subscriber") === "1") {
-      return Peacekeeper;
-    }
-    if (msg.tags.get("mod") === "1") {
-      return R99;
-    }
-    return P2020;
+    return img ? P2020 : "none";
   }
 
   let scrollToBottomOfChat = () => {
@@ -56,10 +43,10 @@ export default function Chat({ messages }) {
                   : "chat-message"
               }
             >
-              <span className={assignClass(msg)}>
+              <span className={assignClass(msg, false)}>
                 {msg.tags.get("display-name")}
               </span>{" "}
-              <img className="gun-img" src={assignImg(msg)} alt="gun" />{" "}
+              <img className="gun-img" src={assignClass(msg, true)} alt="gun" />{" "}
               {msg.tags.get("emotes") === ""
                 ? msg.message.value
                 : msg.message.value.split(" ").map((word) => {
@@ -85,7 +72,6 @@ export default function Chat({ messages }) {
                       return `${word} `;
                     }
                   })}
-              {/* {msg.message.value} */}
             </p>
           </li>
         );
@@ -93,5 +79,3 @@ export default function Chat({ messages }) {
     </ol>
   );
 }
-
-// https://static-cdn.jtvnw.net/emoticons/v1/${emoteCodes[wordsArray[i]]}/2.0

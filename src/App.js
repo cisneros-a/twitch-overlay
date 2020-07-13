@@ -10,6 +10,7 @@ export default class App extends Component {
   state = {
     messages: [],
     bitDonations: [],
+    theme: "green",
   };
   ChatClient;
 
@@ -24,6 +25,7 @@ export default class App extends Component {
         this.ChatClient.onPrivmsg((channel, user, message, msg) => {
           this.addBits(msg);
           this.addMessages(msg);
+          this.checkForThemeChange(msg);
         });
       });
   }
@@ -60,6 +62,36 @@ export default class App extends Component {
   addToMessages = (msg) => {
     this.addBits(msg);
     this.addMessages(msg);
+    this.checkForThemeChange(msg);
+  };
+
+  checkForThemeChange = (msg) => {
+    if (msg.prefix.user === "gunchfps" || msg.tags.get("mod") === "1") {
+      if (msg.message.value[0] === "!") {
+        switch (msg.message.value) {
+          case "!green":
+            this.setState({
+              theme: "green",
+            });
+            break;
+          case "!purple":
+            this.setState({
+              theme: "purple",
+            });
+            break;
+          case "!red":
+            this.setState({
+              theme: "red",
+            });
+            break;
+          default:
+            this.setState({
+              theme: this.state.theme,
+            });
+            break;
+        }
+      }
+    }
   };
 
   render() {
@@ -75,7 +107,7 @@ export default class App extends Component {
         </div>
         <div></div>
         <div>
-          <CameraBorder />
+          <CameraBorder theme={this.state.theme} />
         </div>
         <div></div>
         <div></div>

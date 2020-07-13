@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function CameraBorder() {
-  return <div class="container"></div>;
+export default function CameraBorder({ theme }) {
+  return <div class={`camera-container ${theme}-camera-theme`}></div>;
 }

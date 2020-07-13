@@ -12,7 +12,7 @@
 }
 
 .App > div {
-  /* border: 1px solid black; */
+  border: 1px solid black;
   z-index: 0;
 }
 
@@ -93,10 +93,6 @@ ul {
   padding-left: 3px;
 }
 
-.red-border {
-  border: 1px solid red;
-}
-
 .gun-img {
   margin-right: 1px;
 }
@@ -166,21 +162,21 @@ ul {
   }
 }
 
-.container {
+.camera-container {
   position: relative;
   z-index: 0;
-  width: 70%;
-  height: 80%;
+  width: 60%;
+  height: 75%;
   border-radius: 10px;
   overflow: hidden;
   padding: 2rem;
-  margin-top: 25%;
-  margin-left: 17%;
+  margin-top: 27%;
+  margin-left: 27%;
   margin-right: auto;
   background-color: lightblue;
 }
 
-.container::before {
+.green-camera-theme::before {
   content: "";
   position: absolute;
   z-index: -2;
@@ -188,16 +184,54 @@ ul {
   top: -50%;
   width: 200%;
   height: 200%;
-  background-color: #399953;
   background-repeat: no-repeat;
   background-size: 50% 50%, 50% 50%;
   background-position: 0 0, 100% 0, 100% 100%, 0 100%;
-  background-image: linear-gradient(#00ffb8, black),
-    linear-gradient(#00ffb8, black), linear-gradient(#00ffb8, black),
-    linear-gradient(#00ffb8, black);
+  background-image: linear-gradient(rgb(17, 213, 105), black),
+    linear-gradient(rgb(17, 213, 105), black),
+    linear-gradient(rgb(17, 213, 105), black),
+    linear-gradient(rgb(17, 213, 105), black);
 
   animation: rotate 8s linear infinite;
   -webkit-animation: rotate 8s linear infinite;
+}
+
+.purple-camera-theme::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  left: -50%;
+  top: -50%;
+  width: 200%;
+  height: 200%;
+  background-repeat: no-repeat;
+  background-size: 50% 50%, 50% 50%;
+  background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+  background-image: linear-gradient(#c43edf, #00ffb8),
+    linear-gradient(#c43edf, #00ffb8), linear-gradient(#c43edf, #00ffb8),
+    linear-gradient(#c43edf, #00ffb8);
+
+  animation: rotate 4s linear infinite;
+  -webkit-animation: rotate 4s linear infinite;
+}
+
+.red-camera-theme::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  left: -50%;
+  top: -50%;
+  width: 200%;
+  height: 200%;
+  background-repeat: no-repeat;
+  background-size: 50% 50%, 50% 50%;
+  background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+  background-image: linear-gradient(#e92852, #215ec6),
+    linear-gradient(#e92852, #215ec6), linear-gradient(#e92852, #215ec6),
+    linear-gradient(#e92852, #215ec6);
+
+  animation: rotate 4s linear infinite;
+  -webkit-animation: rotate 4s linear infinite;
 }
 
 @keyframes rotate {
@@ -212,7 +246,7 @@ ul {
   }
 }
 
-.container::after {
+.camera-container::after {
   content: "";
   position: absolute;
   z-index: -1;

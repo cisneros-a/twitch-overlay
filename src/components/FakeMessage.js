@@ -5,14 +5,14 @@ export default function PracticeStyle({ addToMessages }) {
   testMap.set("id", `${Math.random()}`);
   testMap.set("display-name", "Adrian");
   testMap.set("subscriber", "1");
-  testMap.set("mod", "0");
+  testMap.set("mod", "1");
 
   let msg = {
     prefix: {
       user: "gunchfps",
     },
     message: {
-      value: `count is blah`,
+      value: `!red`,
     },
     totalBits: Math.floor(Math.random() * 100),
     tags: testMap,

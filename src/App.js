@@ -4,7 +4,6 @@ import ChatClient from "twitch-chat-client";
 import Chat from "./components/Chat";
 import BitsContainer from "./components/BitsContainer";
 import CameraBorder from "./components/CameraBorder";
-import FakeMessage from "./components/FakeMessage";
 
 export default class App extends Component {
   state = {
@@ -102,9 +101,7 @@ export default class App extends Component {
         <div className="section3"></div>
         <div className="section4"></div>
         <div></div>
-        <div>
-          <FakeMessage addToMessages={this.addToMessages} />
-        </div>
+        <div></div>
         <div></div>
         <div>
           <CameraBorder theme={this.state.theme} />

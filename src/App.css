@@ -234,6 +234,27 @@ ul {
   -webkit-animation: rotate 8s linear infinite;
 }
 
+.dbz-camera-theme::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  left: -50%;
+  top: -50%;
+  width: 200%;
+  height: 200%;
+  background-repeat: no-repeat;
+  background-size: 50% 50%, 50% 50%;
+  background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+
+  background-image: linear-gradient(#f3a903, #2955dc, #2955dc),
+    linear-gradient(#2955dc, #f3a903, #f3a903),
+    linear-gradient(#f3a903, #2955dc, #2955dc),
+    linear-gradient(#2955dc, #f3a903, #f3a903);
+  /* (#2955dc, #f3a903, )  */
+  animation: rotate 8s linear infinite;
+  -webkit-animation: rotate 8s linear infinite;
+}
+
 @keyframes rotate {
   0% {
     transform: rotate(0deg);

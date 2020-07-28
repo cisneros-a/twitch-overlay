@@ -30,7 +30,6 @@ export default class App extends Component {
   }
 
   addBits = (msg) => {
-    console.log("adding bits");
     if (msg.totalBits > 0) {
       let last15BitDonations = this.state.bitDonations;
       if (last15BitDonations.length > 14) {
@@ -54,7 +53,6 @@ export default class App extends Component {
       messages: [...last20Messages, msg],
     });
     if (msg.totalBits > 0) {
-      console.log(true);
     }
   };
 
@@ -65,7 +63,12 @@ export default class App extends Component {
   };
 
   checkForThemeChange = (msg) => {
-    if (msg.prefix.user === "gunchfps" || msg.tags.get("mod") === "1") {
+    if (
+      msg.prefix.user === "gunchfps" ||
+      msg.tags.get("mod") === "1" ||
+      msg.tags.get("custom-reward-id") ===
+        "78a86a3d-4397-480f-87f6-1b1cdcc73a3b"
+    ) {
       if (msg.message.value[0] === "!") {
         switch (msg.message.value) {
           case "!green":
@@ -81,6 +84,11 @@ export default class App extends Component {
           case "!red":
             this.setState({
               theme: "red",
+            });
+            break;
+          case "!dbz":
+            this.setState({
+              theme: "dbz",
             });
             break;
           default:

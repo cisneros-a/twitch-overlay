@@ -2,7 +2,6 @@ import React from "react";
 import Bits from "./Bits";
 
 export default function BitsContainer({ bitDonations }) {
-  console.log(bitDonations);
   return (
     <div className={"bits-container"}>
       {bitDonations.map((donation, idx) => {

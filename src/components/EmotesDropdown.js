@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import Matter from "matter-js";
 import Kewk from "../images/kekw.png";
 
@@ -14,7 +13,7 @@ class EmotesDropdown extends React.Component {
   }
 
   componentDidMount() {
-    const { props } = this.props;
+    console.log("effect");
     var Engine = Matter.Engine,
       Render = Matter.Render,
       World = Matter.World,
@@ -74,7 +73,6 @@ class EmotesDropdown extends React.Component {
         restitution: 0.5,
         render: {
           sprite: {
-            texture: Kewk,
             texture: `https://static-cdn.jtvnw.net/emoticons/v1/${
               emoteIds[Math.floor(Math.random() * Math.floor(3))]
             }/2.0`,
@@ -103,9 +101,6 @@ class EmotesDropdown extends React.Component {
   }
 
   render() {
-    {
-      console.log(this.props);
-    }
     return <div ref="scene" />;
   }
 }

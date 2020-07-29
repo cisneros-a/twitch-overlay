@@ -89,12 +89,11 @@ class EmotesDropdown extends React.Component {
       let emoteBall = this.createBall(emotesToRender[i]);
       this.World.add(this.engine.world, [emoteBall]);
     }
+    return null;
   };
 
   render() {
-    {
-      this.props.message.length > 0 && this.renderEmotes();
-    }
+    this.props.message.length > 0 && this.renderEmotes();
 
     return <div ref="scene" />;
   }

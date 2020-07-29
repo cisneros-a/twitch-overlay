@@ -5,12 +5,14 @@ import Chat from "./components/Chat";
 import BitsContainer from "./components/BitsContainer";
 import CameraBorder from "./components/CameraBorder";
 import EmotesDropdown from "./components/EmotesDropdown";
+import FakeMessage from "./components/FakeMessage";
 
 export default class App extends Component {
   state = {
     messages: [],
     bitDonations: [],
     theme: "green",
+    latestMessage: [],
   };
   ChatClient;
 
@@ -52,6 +54,7 @@ export default class App extends Component {
     }
     this.setState({
       messages: [...last20Messages, msg],
+      latestMessage: [msg],
     });
     if (msg.totalBits > 0) {
     }
@@ -106,31 +109,31 @@ export default class App extends Component {
     return (
       <div className="App">
         <div className="section1">
-          <EmotesDropdown
-            message={this.state.messages[this.state.messages.length - 1]}
-          />
+          <EmotesDropdown message={this.state.latestMessage} />
         </div>
-        <div className="section2"></div>
-        <div className="section3"></div>
-        <div className="section4"></div>
-        <div>
+        <div className="section5"></div>
+        <div className="section6">
+          <FakeMessage addToMessages={this.addToMessages} />
+        </div>
+        <div className="section7"></div>
+        <div className="section8">
           <CameraBorder theme={this.state.theme} />
         </div>
-        <div></div>
-        <div></div>
-        <div></div>
+        <div className="section9"></div>
+        <div className="section10"></div>
+        <div className="section11"></div>
         <div className="section12">
           <BitsContainer bitDonations={this.state.bitDonations} />
         </div>
-        <div></div>
-        <div></div>
-        <div>
+        <div className="section13"></div>
+        <div className="section14"></div>
+        <div className="section15">
           <Chat messages={this.state.messages}></Chat>
         </div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+        <div className="section16"></div>
+        <div className="section17"></div>
+        <div className="section18"></div>
+        <div className="section19"></div>
       </div>
     );
   }

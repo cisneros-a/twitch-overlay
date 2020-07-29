@@ -6,6 +6,7 @@ export default function PracticeStyle({ addToMessages }) {
   testMap.set("display-name", "Adrian");
   testMap.set("subscriber", "0");
   testMap.set("mod", "0");
+  testMap.set("emotes", "1");
   testMap.set("custom-reward-id", "78a86a3d-4397-480f-87f6-1b1cdcc73a3b");
   // "9a138780-08bd-4f1e-ae98-9b90d661e11c"
   // "78a86a3d-4397-480f-87f6-1b1cdcc73a3b" theme change
@@ -15,7 +16,7 @@ export default function PracticeStyle({ addToMessages }) {
       user: "aCodesTX",
     },
     message: {
-      value: `!dbz`,
+      value: `what's good gunchfPPunch`,
     },
     // totalBits: Math.floor(Math.random() * 100),
     tags: testMap,

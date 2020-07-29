@@ -1,6 +1,5 @@
 import React from "react";
 import Matter from "matter-js";
-import Kewk from "../images/kekw.png";
 
 class EmotesDropdown extends React.Component {
   constructor(props) {

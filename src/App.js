@@ -5,7 +5,6 @@ import Chat from "./components/Chat";
 import BitsContainer from "./components/BitsContainer";
 import CameraBorder from "./components/CameraBorder";
 import EmotesDropdown from "./components/EmotesDropdown";
-import FakeMessage from "./components/FakeMessage";
 
 export default class App extends Component {
   state = {
@@ -112,9 +111,7 @@ export default class App extends Component {
           <EmotesDropdown message={this.state.latestMessage} />
         </div>
         <div className="section5"></div>
-        <div className="section6">
-          <FakeMessage addToMessages={this.addToMessages} />
-        </div>
+        <div className="section6"></div>
         <div className="section7"></div>
         <div className="section8">
           <CameraBorder theme={this.state.theme} />

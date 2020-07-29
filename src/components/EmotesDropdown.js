@@ -84,6 +84,7 @@ class EmotesDropdown extends React.Component {
         if (gunchEmotes.includes(word)) {
           emotesToRender.push(emoteCodes[word]);
         }
+        return 1;
       });
     for (let i = 0; i < emotesToRender.length; i++) {
       let emoteBall = this.createBall(emotesToRender[i]);

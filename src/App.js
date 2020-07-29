@@ -4,6 +4,7 @@ import ChatClient from "twitch-chat-client";
 import Chat from "./components/Chat";
 import BitsContainer from "./components/BitsContainer";
 import CameraBorder from "./components/CameraBorder";
+import EmotesDropdown from "./components/EmotesDropdown";
 
 export default class App extends Component {
   state = {
@@ -104,13 +105,14 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="section1"></div>
+        <div className="section1">
+          <EmotesDropdown
+            message={this.state.messages[this.state.messages.length - 1]}
+          />
+        </div>
         <div className="section2"></div>
         <div className="section3"></div>
         <div className="section4"></div>
-        <div></div>
-        <div></div>
-        <div></div>
         <div>
           <CameraBorder theme={this.state.theme} />
         </div>
@@ -125,6 +127,9 @@ export default class App extends Component {
         <div>
           <Chat messages={this.state.messages}></Chat>
         </div>
+        <div></div>
+        <div></div>
+        <div></div>
         <div></div>
       </div>
     );

@@ -6,9 +6,13 @@
   height: 1080px;
   width: 1920px;
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: repeat(4, minmax(270px, 1fr));
+}
+
+.section1 {
+  grid-column-start: 1;
+  grid-column-end: 5;
 }
 
 .App > div {
@@ -277,4 +281,8 @@ ul {
   height: calc(100% - 15px);
   background: #1d1d1d;
   border-radius: 5px;
+}
+
+.emotes-dropdown {
+  z-index: 1;
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import Matter from "matter-js";
+import KEKW from "../images/newKEKW.png";
 
 class EmotesDropdown extends React.Component {
   constructor(props) {
@@ -20,7 +21,7 @@ class EmotesDropdown extends React.Component {
       angle: Math.PI * (Math.random() * 2 - 1),
       friction: 0.001,
       frictionAir: 0.01,
-      restitution: 0.5,
+      restitution: 1,
       render: {
         sprite: {
           texture: `https://static-cdn.jtvnw.net/emoticons/v1/${emoteId}/2.0`,
@@ -30,7 +31,27 @@ class EmotesDropdown extends React.Component {
 
     setTimeout(() => {
       this.World.remove(this.engine.world, ball);
-    }, 10000);
+    }, 15000);
+
+    return ball;
+  };
+
+  createKekwBall = () => {
+    const ball = this.Bodies.circle(Math.round(Math.random() * 1280), -30, 25, {
+      angle: Math.PI * (Math.random() * 2 - 1),
+      friction: 0.001,
+      frictionAir: 0.01,
+      restitution: 1,
+      render: {
+        sprite: {
+          texture: KEKW,
+        },
+      },
+    });
+
+    setTimeout(() => {
+      this.World.remove(this.engine.world, ball);
+    }, 15000);
 
     return ball;
   };
@@ -71,8 +92,10 @@ class EmotesDropdown extends React.Component {
   }
 
   renderEmotes = () => {
+    console.log("render emotes");
     let emotesToRender = [];
     const msg = this.props.message[0];
+    if (this.checkForKEKWReward(msg)) return 1;
     msg.tags.get("emotes") !== "" &&
       msg.message.value.split(" ").map((word) => {
         const gunchEmotes = ["gunchfPPunch", "gunchfMouse", "gunchfRage"];
@@ -86,11 +109,27 @@ class EmotesDropdown extends React.Component {
         }
         return 1;
       });
+    let timer = 0;
     for (let i = 0; i < emotesToRender.length; i++) {
-      let emoteBall = this.createBall(emotesToRender[i]);
-      this.World.add(this.engine.world, [emoteBall]);
+      timer += 250;
+      setTimeout(() => {
+        let emoteBall = this.createBall(emotesToRender[i]);
+        this.World.add(this.engine.world, [emoteBall]);
+      }, timer);
     }
     return 1;
+  };
+
+  checkForKEKWReward = (msg) => {
+    if (
+      msg.tags.get("custom-reward-id") ===
+      "d6800c3c-0fda-4dbf-a044-f90e181ca3cc"
+    ) {
+      let kekwBall = this.createKekwBall();
+      this.World.add(this.engine.world, [kekwBall]);
+      return true;
+    }
+    return false;
   };
 
   render() {

@@ -30,7 +30,7 @@ export default function Chat({ messages }) {
   useEffect(() => {
     scrollToBottomOfChat();
   }, [messages]);
-  // console.log(messages[messages.length - 1]);
+  console.log(messages[messages.length - 1]);
   return (
     <ol ref={chatContainer} className="chat-container">
       {messages.map((msg) => {

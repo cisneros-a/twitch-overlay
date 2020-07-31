@@ -30,9 +30,12 @@ export default function Chat({ messages }) {
   useEffect(() => {
     scrollToBottomOfChat();
   }, [messages]);
-  console.log(messages[messages.length - 1]);
+
+  // console.log(messages[messages.length - 1]);
   return (
     <ol ref={chatContainer} className="chat-container">
+      {console.log("rendering chat")}
+
       {messages.map((msg) => {
         return (
           <li className="chat-entry" key={msg.tags.get("id")}>

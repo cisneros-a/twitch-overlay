@@ -4,10 +4,10 @@ export default function PracticeStyle({ addToMessages }) {
   let testMap = new Map();
   testMap.set("id", `${Math.random()}`);
   testMap.set("display-name", "Adrian");
-  testMap.set("subscriber", "0");
-  testMap.set("mod", "0");
+  testMap.set("subscriber", "1");
+  testMap.set("mod", "1");
   testMap.set("emotes", "1");
-  testMap.set("custom-reward-id", "78a86a3d-4397-480f-87f6-1b1cdcc73a3b");
+  testMap.set("custom-reward-id", "d6800c3c-0fda-4dbf-a044-f90e181ca3cc");
   // "9a138780-08bd-4f1e-ae98-9b90d661e11c"
   // "78a86a3d-4397-480f-87f6-1b1cdcc73a3b" theme change
 
@@ -16,7 +16,7 @@ export default function PracticeStyle({ addToMessages }) {
       user: "aCodesTX",
     },
     message: {
-      value: ` you's a bitch gunchfPPunch gunchfPPunch gunchfMouse gunchfMouse gunchfRage gunchfRage`,
+      value: ` !kekw`,
     },
     // totalBits: Math.floor(Math.random() * 100),
     tags: testMap,

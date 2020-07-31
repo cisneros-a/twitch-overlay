@@ -14,6 +14,7 @@ export default class App extends Component {
     theme: "green",
     latestMessage: [],
   };
+
   ChatClient;
 
   componentDidMount() {
@@ -60,12 +61,6 @@ export default class App extends Component {
     }
   };
 
-  addToMessages = (msg) => {
-    this.addBits(msg);
-    this.addMessages(msg);
-    this.checkForThemeChange(msg);
-  };
-
   checkForThemeChange = (msg) => {
     if (
       msg.prefix.user === "gunchfps" ||
@@ -105,7 +100,16 @@ export default class App extends Component {
     }
   };
 
+  addFakeMessage = (msg) => {
+    this.addBits(msg);
+    this.addMessages(msg);
+    this.checkForThemeChange(msg);
+  };
+
   render() {
+    {
+      console.log("rendering main");
+    }
     return (
       <div className="App">
         <div className="section1">
@@ -113,7 +117,7 @@ export default class App extends Component {
         </div>
         <div className="section5"></div>
         <div className="section6">
-          {/* <FakeMessage addToMessages={this.addToMessages} /> */}
+          {/* <FakeMessage addToMessages={this.addFakeMessage} /> */}
         </div>
         <div className="section7"></div>
         <div className="section8">

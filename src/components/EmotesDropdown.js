@@ -92,7 +92,6 @@ class EmotesDropdown extends React.Component {
   }
 
   renderEmotes = () => {
-    console.log("render emotes");
     let emotesToRender = [];
     const msg = this.props.message[0];
     if (this.checkForKEKWReward(msg)) return 1;
@@ -125,14 +124,22 @@ class EmotesDropdown extends React.Component {
       msg.tags.get("custom-reward-id") ===
       "d6800c3c-0fda-4dbf-a044-f90e181ca3cc"
     ) {
-      let kekwBall = this.createKekwBall();
-      this.World.add(this.engine.world, [kekwBall]);
+      let timer = 0;
+      for (let i = 0; i <= 4; i++) {
+        timer += 250;
+        setTimeout(() => {
+          let kekwBall = this.createKekwBall();
+          this.World.add(this.engine.world, [kekwBall]);
+        }, timer);
+      }
       return true;
     }
     return false;
   };
 
   render() {
+    console.log("rendering emote dropdown");
+
     this.props.message.length > 0 && this.renderEmotes();
 
     return <div ref="scene" />;

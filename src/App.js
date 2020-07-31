@@ -107,9 +107,6 @@ export default class App extends Component {
   };
 
   render() {
-    {
-      console.log("rendering main");
-    }
     return (
       <div className="App">
         <div className="section1">

@@ -16,7 +16,7 @@ export default function PracticeStyle({ addToMessages }) {
       user: "aCodesTX",
     },
     message: {
-      value: `what's good gunchfPPunch`,
+      value: ` you's a bitch gunchfPPunch gunchfPPunch gunchfMouse gunchfMouse gunchfRage gunchfRage`,
     },
     // totalBits: Math.floor(Math.random() * 100),
     tags: testMap,

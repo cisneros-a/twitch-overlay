@@ -138,8 +138,6 @@ class EmotesDropdown extends React.Component {
   };
 
   render() {
-    console.log("rendering emote dropdown");
-
     this.props.message.length > 0 && this.renderEmotes();
 
     return <div ref="scene" />;

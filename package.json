@@ -10,7 +10,7 @@
     "matter-js": "^0.14.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
+    "react-scripts": "5.0.1",
     "twitch": "^3.7.1",
     "twitch-chat-client": "^3.7.3"
   },
